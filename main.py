@@ -6,7 +6,7 @@ import random
 from replit import db
 
 client = discord.Client()
-user = 
+user = "test"
 
 sad_words = ["sad", "depressed", "unhappy", "angry", "miserable", "depressing"]
 
