@@ -45,7 +45,8 @@ async def on_ready():
 
 @client.event
 async def on_message():
-  if message.author.id == ('264505493656043520')
+  if message.author.id == ('264505493656043520'):
+    options = starter_encouragements
     await message.channel.send(random.choice(options))
 
 @client.event
