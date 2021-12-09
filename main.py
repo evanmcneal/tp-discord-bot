@@ -5,6 +5,8 @@ import json
 import time
 import random
 from replit import db
+from keep_alive import keep_alive
+
 
 client = discord.Client()
 
@@ -15,7 +17,8 @@ angry_stuff = [
   "I cant believe you said that!.",
   "Delete this right now!",
   "You fucking Ginger Bitch!",
-  "You should have been a blowjob!"
+  "You should have been a blowjob!",
+  "Fucking Nerd..."
 ]
 
 nice_stuff = [
@@ -23,7 +26,8 @@ nice_stuff = [
   "I am glad that bitch Tyler Pate didn't send that or I'd be really pissed. Fucking swine.",
   "I really love that you message in this discord. You are amazing",
   "Hey, it's you again, nice!",
-  "*whistles in sexy*"
+  "*whistles in sexy*",
+  "DAYYYUMMM, you fine as hell"
 ]
 
 dad_stuff = [
@@ -59,27 +63,24 @@ def delete_encouragment(index):
 @client.event
 async def on_ready():
   print('I have logged in as {0.user}'.format(client))
+  await client.change_presence(status=discord.Status.invisible)
 
 @client.event
 async def on_voice_state_update(member, before,after):
   channel = await client.fetch_channel(644300965117165589)
-  print(member.id)
   if db["responding"]:
     if before.channel == None:
       if member.id == (263405587704971264) or member.id == (264505493656043520):
-        print(member)
         await channel.send("Welcome to the voice chat " + member.name + "! You are so amazing!!!")
       if member.id == (293904621821231104) or member.id == (390261906058772480):
-        print(member)
         await channel.send("Here we go, some idiot name "+  member.name +" joined the voice chat...")
     else:
-      print("Idiot was leaving, not joining")
+      print("Didn't join.")
 
 @client.event
 async def on_message(message):
   if message.author == client.user:
     return
-  print(message)
   msg = message.content
   if db["responding"]:
     if message.author.id == (263405587704971264) or message.author.id == (264505493656043520):
@@ -96,6 +97,10 @@ async def on_message(message):
       options = dad_stuff
       time.sleep(2)
       await message.channel.send(random.choice(options))
+    
+    if message.author.id == (264554889726656513):
+      time.sleep(2)
+      await message.channel.send("Slow ya roll Cammy Poo")
 
   if msg.startswith("$responding"):
     value = msg.split("$responding ",1)[1]
@@ -107,4 +112,5 @@ async def on_message(message):
       db["responding"] = False
       await message.channel.send("Responding is off.")
 
+keep_alive()
 client.run(os.getenv('TOKEN'))
