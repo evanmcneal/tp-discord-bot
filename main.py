@@ -18,11 +18,18 @@ angry_stuff = [
 ]
 
 nice_stuff = [
-  "Fuck You!",
-  "I cant believe you said that!",
-  "Delete this right now!",
-  "You fucking Ginger Bitch!",
-  "You should have been a blowjob!"
+  "You are so pretty!",
+  "I am glad that bitch Tyler Pate didn't send that or I'd be really pissed. Fucking swine.",
+  "I really love that you message in this discord. You are amazing",
+  "Hey, it's you again, nice!",
+  "*whistles in sexy*"
+]
+
+dad_stuff = [
+  "Can we play catch father?",
+  "How many years does it take to go to the grocery for milk???? :(",
+  "Are we there yet??",
+  "Father, change me!"
 ]
 
 if "responding" not in db.keys():
