@@ -2,6 +2,7 @@ import discord
 import os
 import requests
 import json
+import time
 import random
 from replit import db
 
@@ -69,10 +70,12 @@ async def on_message(message):
 
   if message.author.id == (263405587704971264) or message.author.id == (264505493656043520):
     options = nice_stuff
+    time.sleep(2)
     await message.channel.send(random.choice(options))
 
   if message.author.id == (293904621821231104):
     options = nice_stuff
+    time.sleep(2)
     await message.channel.send(random.choice(options))
 
   if msg.startswith("$responding"):
