@@ -6,14 +6,23 @@ import random
 from replit import db
 
 client = discord.Client()
-user = "test"
 
 sad_words = ["sad", "depressed", "unhappy", "angry", "miserable", "depressing"]
 
-starter_encouragements = [
+angry_stuff = [
   "Fuck You!",
   "I cant believe you said that!.",
-  "Delete this right now!"
+  "Delete this right now!",
+  "You fucking Ginger Bitch!",
+  "You should have been a blowjob!"
+]
+
+nice_stuff = [
+  "Fuck You!",
+  "I cant believe you said that!",
+  "Delete this right now!",
+  "You fucking Ginger Bitch!",
+  "You should have been a blowjob!"
 ]
 
 if "responding" not in db.keys():
@@ -43,49 +52,21 @@ def delete_encouragment(index):
 async def on_ready():
   print('I have logged in as {0.user}'.format(client))
 
-@client.event
-async def on_message(message):
-  if message.author.id == ('264505493656043520'):
-    options = starter_encouragements
-    await message.channel.send(random.choice(options))
 
 @client.event
 async def on_message(message):
   if message.author == client.user:
     return
-
+  print(message)
   msg = message.content
 
-  if msg.startswith('$inspire'):
-    quote = get_quote()
-    await message.channel.send(quote)
+  if message.author.id == (263405587704971264) or message.author.id == (264505493656043520):
+    options = nice_stuff
+    await message.channel.send(random.choice(options))
 
-  if db["responding"]:
-    options = starter_encouragements
-    if "encouragements" in db.keys():
-      options = options + db["encouragements"]
-
-    if any(word in msg for word in sad_words):
-      await message.channel.send(random.choice(options))
-
-  if msg.startswith("$new"):
-    encouraging_message = msg.split("$new ",1)[1]
-    update_encouragements(encouraging_message)
-    await message.channel.send("New encouraging message added.")
-
-  if msg.startswith("$del"):
-    encouragements = []
-    if "encouragements" in db.keys():
-      index = int(msg.split("$del",1)[1])
-      delete_encouragment(index)
-      encouragements = db["encouragements"]
-    await message.channel.send(encouragements)
-
-  if msg.startswith("$list"):
-    encouragements = []
-    if "encouragements" in db.keys():
-      encouragements = db["encouragements"]
-    await message.channel.send(encouragements)
+  if message.author.id == (293904621821231104):
+    options = nice_stuff
+    await message.channel.send(random.choice(options))
 
   if msg.startswith("$responding"):
     value = msg.split("$responding ",1)[1]
