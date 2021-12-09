@@ -10,8 +10,6 @@ from keep_alive import keep_alive
 
 client = discord.Client()
 
-sad_words = ["sad", "depressed", "unhappy", "angry", "miserable", "depressing"]
-
 angry_stuff = [
   "Fuck You!",
   "I cant believe you said that!.",
@@ -20,7 +18,8 @@ angry_stuff = [
   "You should have been a blowjob!",
   "Fucking Nerd...",
   "I sure do hate knowing you were conceived",
-  "Uh Oh, I smell a bitch"
+  "Uh Oh, I smell a bitch",
+  "t(-_-t)"
 ]
 
 nice_stuff = [
@@ -29,10 +28,9 @@ nice_stuff = [
   "I really love that you message in this discord. You are amazing",
   "Hey, it's you again, nice!",
   "*whistles in sexy*",
-  "<strong>Nice cock</strong>"
   "DAYYYUMMM, you fine as hell",
   "My savior!",
-  "**Nice cock**"
+  "**NICE COCK!**"
 ]
 
 dad_stuff = [
