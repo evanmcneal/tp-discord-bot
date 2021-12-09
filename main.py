@@ -60,6 +60,20 @@ def delete_encouragment(index):
 async def on_ready():
   print('I have logged in as {0.user}'.format(client))
 
+@client.event
+async def on_voice_state_update(member, before,after):
+  channel = await client.fetch_channel(644300965117165589)
+  print(member.id)
+  if db["responding"]:
+    if before.channel == None:
+      if member.id == (263405587704971264) or member.id == (264505493656043520):
+        print(member)
+        await channel.send("Welcome to the voice chat " + member.name + "! You are so amazing!!!")
+      if member.id == (293904621821231104) or member.id == (390261906058772480):
+        print(member)
+        await channel.send("Here we go, some idiot name "+  member.name +" joined the voice chat...")
+    else:
+      print("Idiot was leaving, not joining")
 
 @client.event
 async def on_message(message):
@@ -67,16 +81,21 @@ async def on_message(message):
     return
   print(message)
   msg = message.content
+  if db["responding"]:
+    if message.author.id == (263405587704971264) or message.author.id == (264505493656043520):
+      options = nice_stuff
+      time.sleep(2)
+      await message.channel.send(random.choice(options))
 
-  if message.author.id == (263405587704971264) or message.author.id == (264505493656043520):
-    options = nice_stuff
-    time.sleep(2)
-    await message.channel.send(random.choice(options))
+    if message.author.id == (293904621821231104):
+      options = angry_stuff
+      time.sleep(2)
+      await message.channel.send(random.choice(options))
 
-  if message.author.id == (293904621821231104):
-    options = nice_stuff
-    time.sleep(2)
-    await message.channel.send(random.choice(options))
+    if message.author.id == (390261906058772480):
+      options = dad_stuff
+      time.sleep(2)
+      await message.channel.send(random.choice(options))
 
   if msg.startswith("$responding"):
     value = msg.split("$responding ",1)[1]
