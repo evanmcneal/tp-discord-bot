@@ -6,13 +6,14 @@ import random
 from replit import db
 
 client = discord.Client()
+user = 
 
 sad_words = ["sad", "depressed", "unhappy", "angry", "miserable", "depressing"]
 
 starter_encouragements = [
-  "Cheer up!",
-  "Hang in there.",
-  "You are a great person / bot!"
+  "Fuck You!",
+  "I cant believe you said that!.",
+  "Delete this right now!"
 ]
 
 if "responding" not in db.keys():
@@ -41,6 +42,11 @@ def delete_encouragment(index):
 @client.event
 async def on_ready():
   print('I have logged in as {0.user}'.format(client))
+
+@client.event
+async def on_message():
+  if message.author.id == ('264505493656043520')
+    await message.channel.send(random.choice(options))
 
 @client.event
 async def on_message(message):
