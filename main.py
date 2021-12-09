@@ -4,7 +4,6 @@ import requests
 import json
 import random
 from replit import db
-from keep_alive import keep_alive
 
 client = discord.Client()
 
@@ -41,7 +40,7 @@ def delete_encouragment(index):
 
 @client.event
 async def on_ready():
-  print('We have logged in as {0.user}'.format(client))
+  print('I have logged in as {0.user}'.format(client))
 
 @client.event
 async def on_message(message):
@@ -91,5 +90,4 @@ async def on_message(message):
       db["responding"] = False
       await message.channel.send("Responding is off.")
 
-keep_alive()
 client.run(os.getenv('TOKEN'))
