@@ -78,6 +78,8 @@ async def on_voice_state_update(member, before,after):
         await channel.send("Welcome to the voice chat " + member.name + "! You are so amazing!!!")
       if member.id == (293904621821231104) or member.id == (390261906058772480):
         await channel.send("Here we go, some idiot name "+  member.name +" joined the voice chat...")
+      if member.id == (264554889726656513):
+        await channel.send("Cammy Poo is here, none shall fear!")
     else:
       print("Didn't join.")
 
